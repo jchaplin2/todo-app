@@ -8,7 +8,7 @@ var TodoItemView = Backbone.View.extend({
 	},
 
 	render: function(){
-		this.$el.html(this.model.get("title"));
+		this.$el.html(this.model.escape("title"));
 
 		return this;
 	}

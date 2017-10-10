@@ -7,8 +7,16 @@ var TodoItemView = Backbone.View.extend({
 			throw new Error("model is not specified.");
 	},
 
+	events: {
+		"click .toggle": "onClickToggle"
+	},
+
+	onClickToggle: function() {
+		this.model.toggle();
+	},
+
 	render: function(){
-		this.$el.html(this.model.escape("title"));
+		this.$el.html("<input type='checkbox' name='toggle' /> " + this.model.escape("title"));
 
 		return this;
 	}

@@ -18,4 +18,11 @@ describe("TodoItemView", function(){
 		expect(completed).toBeTruthy();
 	});
 
+	it("click toggle should change item class name.", function(){
+		view.onClickToggle();
+		var eltClassName = view.el.getAttribute("class");
+
+		expect(eltClassName).toBeTruthy("completed");
+	});
+
 });

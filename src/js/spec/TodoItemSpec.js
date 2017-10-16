@@ -13,4 +13,8 @@ describe("TodoItem", function(){
 		expect(todoItem.isValid()).toBeTruthy();
 	});
 
+	it("urlRoot should be https://jsonplaceholder.typicode.com/todos", function(){
+		expect(todoItem.urlRoot).toEqual("https://jsonplaceholder.typicode.com/todos");
+	});
+
 });

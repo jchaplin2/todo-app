@@ -24,9 +24,9 @@ var TodoItemView = Backbone.View.extend({
 
 	render: function(){
 		this.$el.attr("id", this.model.id);
-		this.$el.toggleClass("completed", this.model.get("isCompleted"));
+		this.$el.toggleClass("completed", this.model.get("completed"));
 
-		var checked = this.model.get("isCompleted") ? "checked" : "";
+		var checked = this.model.get("completed") ? "checked" : "";
 		this.$el.html("<input type='checkbox' class='toggle'"  + checked + "  > </input>" + this.model.escape("title") + "<button class='delete' > Delete </button>");
 
 		return this;

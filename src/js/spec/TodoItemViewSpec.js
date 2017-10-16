@@ -13,7 +13,7 @@ describe("TodoItemView", function(){
 
 	it("click toggle should change the completed status.", function(){
 		view.onClickToggle();
-		var completed = view.model.get("isCompleted");
+		var completed = view.model.get("completed");
 
 		expect(completed).toBeTruthy();
 	});

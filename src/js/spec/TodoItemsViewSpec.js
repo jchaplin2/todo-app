@@ -5,7 +5,7 @@ describe("TodoItemsView", function(){
 	var newLength;
 
 	beforeEach(function(){
-		todoItems = new TodoItems([]);
+		todoItems = new TodoItems( [new TodoItem({ id: 1, title: "TodoItem 1"})] );
 		todoItemsView = new TodoItemsView({ model: todoItems});
 		length = todoItemsView.model.length;
 		$(document.body).append('<input id="#newTodoItem" type="text" />');
@@ -21,7 +21,7 @@ describe("TodoItemsView", function(){
 	it("should prevent adding entries if there is no description.", function(){
 		todoItemsView.onClickAdd();
 		newLength = todoItemsView.model.length;
-		expect(length).not.toEqual(newLength);
+		expect(newLength).toBeGreaterThan(length);
 	});
 
 });

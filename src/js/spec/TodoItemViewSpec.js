@@ -25,4 +25,14 @@ describe("TodoItemView", function(){
 		expect(eltClassName).toBeTruthy("completed");
 	});
 
+	it("destroy the model when called.", function(){
+		spyOn(model, "destroy");
+		
+		view.render();
+
+		view.$el.find(".delete")[0].click();
+
+		expect(model.destroy).toHaveBeenCalled();
+	});
+
 });

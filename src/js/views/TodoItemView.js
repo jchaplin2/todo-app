@@ -20,6 +20,7 @@ var TodoItemView = Backbone.View.extend({
 
 	onClickToggle: function() {
 		this.model.toggle();
+		this.model.save();
 	},
 
 	render: function(){

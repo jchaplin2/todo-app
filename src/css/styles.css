@@ -1,10 +1,52 @@
 
 body {
 	padding: 40px;
+	background: #ccc;
 }
 
 body, p { font-size: 24px; }
 
-#todoItems li.completed {
+#todoItems {
+	list-style: none;
+	border-top: 1px solid #ccc;
+	border-left: 1px solid #ccc;
+	padding-left: 0;
+	margin-top: 0;
+	background: #fff;
+}
+
+#todoItems > li {
+	padding: 10px;
+	border-right: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+}
+
+#todoItems li.completed > label {
 	text-decoration: line-through;
+}
+
+.new-todo-text-box {
+	width: 100%;
+	padding: 10px;
+	box-sizing: border-box;
+}
+
+.todo-main {
+	width: 800px;
+	margin: 0 auto;
+}
+
+.delete {
+	float: right;
+	font-size: 16px;
+	background: #d94e5e;
+	border: 0;
+	border-radius: 9px;
+	color: white;
+	padding: 7px;
+}
+
+label {
+	width: 80%;
+	display: inline-block;
 }

@@ -1,7 +1,8 @@
 var TodoItemsView = Backbone.View.extend({
-	tagName: "ul",
 
-	id: "todoItems",
+	tagName: "main",
+
+	className: "todo-main",
 
 	initialize: function(options){
 		if(!(options && options.model))
@@ -17,11 +18,10 @@ var TodoItemsView = Backbone.View.extend({
 
 	onAddTodoItem: function(todoItem) {
 		var view = new TodoItemView({ model: todoItem});
-		this.$el.append(view.render().$el);
+		this.$("#todoItems").append(view.render().$el);
 	},
 
 	events: {
-		"click #add": "onClickAdd",
 		"keypress #newTodoItem": "onKeyPress"
 	},
 
@@ -43,15 +43,10 @@ var TodoItemsView = Backbone.View.extend({
 	},
 
 	render: function() {
-		var self = this;
+		var template = $("#todoItemsTemplate").html();
+		var html = Mustache.render(template);
+		this.$el.html(html);
 
-		this.$el.append("<input type='text' autofocus id='newTodoItem' ></input>");
-		this.$el.append("<button id='add'> Add </button>");
-
-		this.model.each(function(todoItem) {
-			var view = new TodoItemView({ model: todoItem});
-			self.$el.append(view.render().$el);
-		});
 		return this;
 	}
 });
